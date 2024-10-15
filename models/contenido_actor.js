@@ -2,21 +2,18 @@
 const  {sequelize}  = require ('sequelize') 
 const  { dataTypes } = require ('sequelize') 
 
-const actor = sequelize.define( 'actor',
+const contenido_actor = sequelize.define( 'contenido_actor',
     {
+        peli_id: {
+            type: dataTypes.INTEGER,        
+         },
         actor_id: {
             type: dataTypes.INTEGER,
-            primarykey: true,
-            autoincrement: true,  
-    },
-        nombre: {
-            type: dataTypes.STRING,
             allownull: false,
-    },
+        },
 },
     {
-        tablename:actor,
+        tableName: 'contenido_actor',
         timestamps: false,
-
     }
-)
+)    
