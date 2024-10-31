@@ -1,45 +1,36 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const db  = require('../conexion/database');
-const connection = require('../conexion/database');
-// const { sequelize } = require('sequelize');
-const {contenido} = require ('..//models/contenido')
+const connection  = require('../conexion/database');
+const {contenido, sequelize} = require ('..//models/contenido')
+const contenidoController = require('../controllers/contenidoController')
 
-// app.get('/', (req,res) => {res.send ("hello word")})
 
 // Routes for CRUD
-app.get('/', async (req, res) =>  { try  {
-    console.log('conexion establecida con exito')
-    await contenido.sync()
-    const contenidos = await contenido.findAll()
-    const contenidodata = contenidos.map((p) => p.dataValues)
-    console.table(contenidodata);
+app.use(express.json());
+app.use( async (req, res, next) => {
+  try  {
+  await sequelize.authenticate()
+  console.log('conexion establecida con exito')
+  await contenido.sync()
+  next()
 } catch(error){
-    console.error('no se pudo conectar',error )}
- finally {
-    connection.end()}
-});
+  res.status(500).json({error: `error en el servidor`, description: error.message })}
+})
 
-// router.get('/:id', (req, res) => {
-//     // Get content by ID
-// });
 
-// router.post('/', (req, res) => {
-//     // Add new content
-// });
+router.get('/', contenidoController.getaallpeliculas);
 
-// router.put('/:id', (req, res) => {
-//     // Update content by ID
-// });
+router.get('/:peli_id', contenidoController.getpeliculasbyId);
 
-// router.delete('/:id', (req, res) => {
-//     // Delete content by ID
-// });
+router.get('/nombre/:titulo', contenidoController.getpeliculabytitle);
 
-// module.exports = router;
+router.get('/reparto/:query', contenidoController.getpeliculabyactor)
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port http://localhost:${PORT}`);
-});
+router.post('/pelicula', contenidoController.createpelicula);
+
+router.put('/pelicula/:peli_id', contenidoController.updatePelicula );
+
+router.delete('/pelicula/:peli_id', contenidoController.deletePelicula);
+
+module.exports = router;

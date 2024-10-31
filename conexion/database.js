@@ -6,13 +6,15 @@ const connection = mysql.createConnection({
     database: 'trailerflix'
 });
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to the database:', err);
+connection.connect((error) => {
+    if (error) {
+        console.error('Error connecting to the database:', error);
         return;
     }
     console.log('Connected to MySQL database');
 }); 
+
+
 
 module.exports = connection;
     

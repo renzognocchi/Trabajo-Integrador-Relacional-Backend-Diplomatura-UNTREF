@@ -1,7 +1,8 @@
-// Model for Actor
-const  {sequelize}  = require ('sequelize') 
-const  { dataTypes } = require ('sequelize') 
-
+const  {Sequelize, dataTypes}  = require ('sequelize') 
+const sequelize = new Sequelize('trailerflix', 'root', 'root', {
+    host: 'localhost',
+    dialect: 'mysql' 
+  });
 const contenido_actor = sequelize.define( 'contenido_actor',
     {
         peli_id: {

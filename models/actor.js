@@ -1,7 +1,8 @@
-// Model for Actor
-const  {sequelize}  = require ('sequelize') 
-const  { dataTypes } = require ('sequelize') 
-
+const  {Sequelize, dataTypes}  = require ('sequelize') 
+const sequelize = new Sequelize('trailerflix', 'root', 'root', {
+    host: 'localhost',
+    dialect: 'mysql' 
+  });
 const actor = sequelize.define( 'actor',
     {
         actor_id: {
@@ -15,7 +16,7 @@ const actor = sequelize.define( 'actor',
     },
 },
     {
-        tablename:actor,
+        tablename:'actor',
         timestamps: false,
 
     }

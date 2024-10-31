@@ -1,0 +1,55 @@
+# obtener todos los productos 
+GET http://localhost:3000/contenido 
+
+###
+
+# obtener pelicula por id 
+GET http://localhost:3000/contenido/ 
+
+###
+
+# filtrar pelicula por titulo
+GET http://localhost:3000/contenido/nombre/The Crown
+
+###
+
+# insertar un producto
+POST http://localhost:3000/contenido/pelicula 
+Content-Type: application/json
+
+{
+          "poster": "/poster/99.jpg",
+          "titulo": "Brothers",
+          "Cat_id": 2,
+          "genero": 12,
+          "resumen": "El intento de un criminal reformado por encarrilarse se ve truncado cuando se reencuentra con su hermano gemelo. A pesar de sus diferencias, estos se embarcan en un último golpe mientras intentan reparar una relación familiar rota.",
+          "busqueda": "Brothers comedia Josh Brolin  gemelos criminales", 
+          "temporadas": "2",
+          "reparto": "Peter Dinklage, Josh Brolin, Glenn Close, Jennifer Landon, Taylour Paige",
+          "duracion": 89,
+          "trailer": "Dos hermanos gemelos criminales, uno buscando redención, se embarcan en un peligroso atraco por carretera. Enfrentando problemas legales, tiroteos y drama familiar, deben reconciliarse antes de que su misión los lleve a la autodestrucción"
+}
+
+###
+
+# modificar una pelicula
+PUT http://localhost:3000/contenido/pelicula/21
+Content-Type: application/json
+
+{
+    "poster": "./posters/14.jpg",
+    "titulo": "peter pan'",
+    "Cat_id": 1,
+    "genero": 20,
+    "busqueda": "Expedientes Secretos 'X', The X Files, Expedientes X, Drama, Sci-Fi, Suspenso, Gillian Anderson, David Duchovny, Mitch Pileggi, Robert Patrick, Tom Braidwood, Bruce Harwood",
+    "resumen": "Fox addaddsasd y Dana Scully son dos investigadores del FBI que investigan casos sin resolución ni explicación, ya sea por razones paranormales (espíritus, criaturas extrañas, aliens...) ya porque el gobierno se ha encargado de ocultar todo tipo de pruebas. Cuando Mulder tenía doce años, su hermana pequeña fue secuestrada por unos desconocidos, aunque él cree que, en realidad, fue abducida por extraterrestres. Tras acabar sus estudios en la universidad de Oxford, ingresó en la Academia de Quantico, donde se ganó el apodo de 'siniestro'",
+    "temporadas": "11",
+    "reparto": "Gillian Anderson, David Duchovny, Mitch Pileggi, Robert Patrick, Tom Braidwood, Bruce Harwood",
+    "duracion": null,
+    "trailer": "https://www.youtube.com/embed/KKziOmsJxzE"
+  }
+
+###
+
+# borrar una pelicula 
+DELETE http://localhost:3000/contenido/pelicula/107
