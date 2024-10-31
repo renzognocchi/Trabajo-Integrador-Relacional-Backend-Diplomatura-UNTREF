@@ -4,7 +4,7 @@ GET http://localhost:3000/contenido
 ###
 
 # obtener pelicula por id 
-GET http://localhost:3000/contenido/ 
+GET http://localhost:3000/contenido/21 
 
 ###
 
@@ -52,4 +52,4 @@ Content-Type: application/json
 ###
 
 # borrar una pelicula 
-DELETE http://localhost:3000/contenido/pelicula/107
+  DELETE http://localhost:3000/contenido/pelicula/107
