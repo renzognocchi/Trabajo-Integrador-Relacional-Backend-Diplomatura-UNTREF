@@ -9,7 +9,12 @@ GET http://localhost:3000/contenido/21
 ###
 
 # filtrar pelicula por titulo
-GET http://localhost:3000/contenido/nombre/The Crown
+GET http://localhost:3000/contenido/nombre/dfgfdg Crown
+
+###
+
+# filtrar pelicula por actor
+GET http://localhost:3000/contenido/reparto/Claire Fox
 
 ###
 
@@ -52,4 +57,4 @@ Content-Type: application/json
 ###
 
 # borrar una pelicula 
-  DELETE http://localhost:3000/contenido/pelicula/107
+  DELETE http://localhost:3000/contenido/pelicula/101

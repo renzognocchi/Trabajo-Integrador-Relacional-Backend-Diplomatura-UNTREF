@@ -1,8 +1,6 @@
-const  {Sequelize, dataTypes}  = require ('sequelize') 
-const sequelize = new Sequelize('trailerflix', 'root', 'root', {
-    host: 'localhost',
-    dialect: 'mysql' 
-  });
+const  {ataTypes}  = require ('sequelize') 
+const sequelize = require('../conexion/database')
+
 const categoria = sequelize.define( 'categoria',
     {
         Cat_id: {
@@ -21,3 +19,5 @@ const categoria = sequelize.define( 'categoria',
         timestamps: false,
     }
 )    
+
+module.exports = categoria

@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const contenidoRoutes = require('./routes/contenidoRoutes');
-const db = require('./conexion/database');
 const router = express.Router();
-//kdaskfad
+const {swaggerUi, swaggerDocs} = require('./utils/SwaggerConfig')
 
+//SwaggerConfiguracion
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Middlewares
-app.use(express.json())
+app.use(express.json());
 app.use('/contenido', contenidoRoutes)
 
 
@@ -15,6 +16,7 @@ app.use('/contenido', contenidoRoutes)
 const PORT =  3000;
 app.listen(PORT, () => {
   console.log(`Server running on port http://localhost:${PORT}`);
+  console.log('Documentación de la API en http://localhost:3000/api-docs')
 });
     
 

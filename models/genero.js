@@ -1,9 +1,5 @@
-// Model for Actor
-const  {Sequelize, dataTypes}  = require ('sequelize') 
-const sequelize = new Sequelize('trailerflix', 'root', 'root', {
-    host: 'localhost',
-    dialect: 'mysql' 
-  });
+const  {ataTypes}  = require ('sequelize') 
+const sequelize = require('../conexion/database')
 
 const genero = sequelize.define( 'genero',
     {
@@ -23,3 +19,5 @@ const genero = sequelize.define( 'genero',
 
     }
 )    
+
+module.exports = genero

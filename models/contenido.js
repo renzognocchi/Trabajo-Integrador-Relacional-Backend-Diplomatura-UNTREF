@@ -1,9 +1,5 @@
-// Model for Actor
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('trailerflix', 'root', 'root', {
-    // host: 'localhost',
-    dialect: 'mysql' 
-  });
+const  {DataTypes}  = require ('sequelize') 
+const {sequelize} = require('../conexion/database')
 
 const contenido = sequelize.define( 'contenido',
     {
@@ -56,4 +52,4 @@ const contenido = sequelize.define( 'contenido',
     }
 )    
 
-module.exports = {contenido, sequelize}
+module.exports = contenido

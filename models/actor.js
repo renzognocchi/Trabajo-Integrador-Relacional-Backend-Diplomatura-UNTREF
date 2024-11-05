@@ -1,8 +1,6 @@
-const  {Sequelize, dataTypes}  = require ('sequelize') 
-const sequelize = new Sequelize('trailerflix', 'root', 'root', {
-    host: 'localhost',
-    dialect: 'mysql' 
-  });
+const  {ataTypes}  = require ('sequelize') 
+const sequelize = require('../conexion/database')
+
 const actor = sequelize.define( 'actor',
     {
         actor_id: {
@@ -21,3 +19,6 @@ const actor = sequelize.define( 'actor',
 
     }
 )
+
+
+module.exports = actor
