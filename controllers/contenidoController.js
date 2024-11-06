@@ -190,13 +190,13 @@ const getpeliculabytitle = async (req, res) =>  {
 
   /**
  * @swagger
- * /contenido/reparto/{query}:
+ * /contenido/reparto/{actor}:
  *   get:
  *     summary: Busca películas por nombre de actor en el reparto.
  *     description: Este endpoint permite buscar y obtener una lista de películas en las que aparece un actor específico.
  *     parameters:
  *       - in: path
- *         name: query
+ *         name: actor
  *         required: true
  *         schema:
  *           type: string
@@ -249,8 +249,8 @@ const getpeliculabytitle = async (req, res) =>  {
  */
 const getpeliculabyactor =  async (req, res) =>  { 
     try {
-    const {query} = req.params
-    const peliculas  = await contenido.findAll({where: {reparto : {[Op.like]: `%${ query }%`}}})
+    const {actor} = req.params
+    const peliculas  = await contenido.findAll({where: {reparto : {[Op.like]: `%${ actor }%`}}})
     if (peliculas.length > 0) {
       res.json(peliculas);
     } else {
@@ -574,8 +574,8 @@ const deletePelicula = async (req, res) => {try {
     if (!PeliculaToDestroy) {
       return res.status(404).json({ error: "pelicula no encontrado "})
     }
-   PeliculaToDestroy.destroy()
-       return res.status(204).send()
+    res.status(200).json({
+      message: "Película borrada correctamente", pelicula: PeliculaToDestroy.toJSON(),});
   } catch (error) {
     return res.status(500).json({error: `error en el servidor`, description: error.message })
   }}

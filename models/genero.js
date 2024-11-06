@@ -1,15 +1,15 @@
-const  {ataTypes}  = require ('sequelize') 
-const sequelize = require('../conexion/database')
+const  {DataTypes}  = require ('sequelize') 
+const {sequelize} = require('../conexion/database')
 
 const genero = sequelize.define( 'genero',
     {
         gen_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primarykey: true,
             autoincrement: true,  
     },
         nombre: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allownull: false,
     },
 },

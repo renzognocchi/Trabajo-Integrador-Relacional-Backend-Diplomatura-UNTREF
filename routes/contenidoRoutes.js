@@ -12,7 +12,7 @@ router.get('/:peli_id', contenidoController.getpeliculasbyId);
 
 router.get('/nombre/:titulo', contenidoController.getpeliculabytitle);
 
-router.get('/reparto/:query', contenidoController.getpeliculabyactor)
+router.get('/reparto/:actor', contenidoController.getpeliculabyactor)
 
 router.post('/pelicula', contenidoController.createpelicula);
 

@@ -4,6 +4,8 @@ const contenidoRoutes = require('./routes/contenidoRoutes');
 const router = express.Router();
 const {swaggerUi, swaggerDocs} = require('./utils/SwaggerConfig')
 
+
+
 //SwaggerConfiguracion
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 

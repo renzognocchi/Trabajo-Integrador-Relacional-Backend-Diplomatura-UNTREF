@@ -1,5 +1,6 @@
 const  {DataTypes}  = require ('sequelize') 
 const {sequelize} = require('../conexion/database')
+const {categoria} = require('./categoria')
 
 const contenido = sequelize.define( 'contenido',
     {
@@ -50,6 +51,8 @@ const contenido = sequelize.define( 'contenido',
         tableName: 'contenido',
         timestamps: false,
     }
-)    
+)   
+
+contenido.belongsTo(categoria, {foreignKey: 'cat_id'})
 
 module.exports = contenido

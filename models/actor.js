@@ -1,15 +1,15 @@
-const  {ataTypes}  = require ('sequelize') 
-const sequelize = require('../conexion/database')
+const  {DataTypes}  = require ('sequelize') 
+const {sequelize} = require('../conexion/database')
 
 const actor = sequelize.define( 'actor',
     {
         actor_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primarykey: true,
             autoincrement: true,  
     },
         nombre: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allownull: false,
     },
 },
@@ -19,6 +19,7 @@ const actor = sequelize.define( 'actor',
 
     }
 )
+
 
 
 module.exports = actor
